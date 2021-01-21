@@ -19,7 +19,6 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
 # ==========luci-app-url==========
 # git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
-git clone https://github.com/siropboy/sirpdboy-package package/sirpdboy-package
 # git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean
 # git clone https://github.com/jerrykuku/luci-app-ttnode.git package/lean
 # ==========luci-theme-url==========
