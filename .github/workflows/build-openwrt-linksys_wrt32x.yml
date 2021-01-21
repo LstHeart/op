@@ -21,8 +21,8 @@ on:
     #paths:
       #- 'router/linksys_wrt32x/.config'
       #- '.github/workflows/build-openwrt-linksys_wrt32x.yml'
-  schedule:
-    - cron: '0 17 * * *'
+#   schedule:
+#     - cron: '0 17 * * *'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
