@@ -208,3 +208,4 @@ jobs:
           Default WIFI password: none
           Installation command: n1-install.sh
           Upgrade command: n1-update.sh
+
