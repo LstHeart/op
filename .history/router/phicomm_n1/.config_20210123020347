@@ -437,6 +437,27 @@ CONFIG_PACKAGE_luci-app-zerotier=y
 # CONFIG_PACKAGE_luci-app-wol is not set
 # CONFIG_PACKAGE_luci-app-wrtbwmon is not set
 # CONFIG_PACKAGE_luci-app-xlnetacc is not set
+# ==========add from diy-part2.sh or open the origin plugin（Mydiy-luci-app-and-theme）==========
+# CONFIG_PACKAGE_luci-app-smartdns is not set
+# 新增或打开需要添加的插件(luci-app)
+CONFIG_PACKAGE_luci-app-smartdns=y  #DNS防污染插件
+CONFIG_PACKAGE_luci-app-socat=y #网络端口转发插件
+CONFIG_PACKAGE_luci-app-jd-dailybonus=y #京东签到插件
+CONFIG_PACKAGE_luci-app-ttnode=y    #甜糖星愿自动收集插件
+CONFIG_PACKAGE_luci-app-wrtbwmon=y  #查看各终端实时流量网速的插件
+# CONFIG_PACKAGE_luci-app-verysync=y  #微力同步插件
+# CONFIG_PACKAGE_luci-app-serverchan=y  #Server酱推送插件
+CONFIG_PACKAGE_luci-app-wol=y #网络唤醒wol
+CONFIG_PACKAGE_luci-lib-docker=y #docker直接管理
+CONFIG_PACKAGE_luci-app-dockerman=y #docker直接管理
+
+EOF
+
+# LuCI-theme:
+cat >> .config <<EOF
+CONFIG_PACKAGE_luci-theme-argon=y
+# ==========add from diy-part2.sh（Mydiy-luci-app-and-theme）==========
+#CONFIG_PACKAGE_luci-theme-atmaterial=y
 EOF
 
 # Software:
@@ -539,6 +560,16 @@ CONFIG_PACKAGE_wget=y
 CONFIG_PACKAGE_wpad=y
 CONFIG_PACKAGE_wwan=y
 CONFIG_PACKAGE_xz-utils=y
+#=============customerize dependences=====================
+# 京东签到插件依赖
+CONFIG_PACKAGE_luasocket=y
+CONFIG_PACKAGE_lua-md5=y
+CONFIG_PACKAGE_lua-cjson=y
+CONFIG_PACKAGE_luasec=y
+# 网络唤醒etherwake
+CONFIG_PACKAGE_etherwake=y
+#=============================================
+
 CONFIG_VSFTPD_USE_UCI_SCRIPTS=y
 CONFIG_DOCKER_STO_EXT4=y
 CONFIG_DOCKER_STO_BTRFS=y

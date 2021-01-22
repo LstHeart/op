@@ -439,6 +439,7 @@ CONFIG_PACKAGE_luci-app-zerotier=y
 # CONFIG_PACKAGE_luci-app-xlnetacc is not set
 EOF
 
+
 # Software:
 cat >> .config <<EOF
 CONFIG_PACKAGE_aircrack-ng=m
@@ -539,6 +540,16 @@ CONFIG_PACKAGE_wget=y
 CONFIG_PACKAGE_wpad=y
 CONFIG_PACKAGE_wwan=y
 CONFIG_PACKAGE_xz-utils=y
+#=============customerize dependences=====================
+# 京东签到插件依赖
+CONFIG_PACKAGE_luasocket=y
+CONFIG_PACKAGE_lua-md5=y
+CONFIG_PACKAGE_lua-cjson=y
+CONFIG_PACKAGE_luasec=y
+# 网络唤醒etherwake
+CONFIG_PACKAGE_etherwake=y
+#=============================================
+
 CONFIG_VSFTPD_USE_UCI_SCRIPTS=y
 CONFIG_DOCKER_STO_EXT4=y
 CONFIG_DOCKER_STO_BTRFS=y

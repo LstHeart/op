@@ -19,35 +19,17 @@ sed -i 's/root::0:0:99999:7:::/root:password:0:0:99999:7:::/g' /etc/shadow
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
-# 修改.config中的app配置或主题配置
-# ==========luci-app==========
-cat >> .config <<EOF
-# ==========add from diy-part2.sh or open the origin plugin（Mydiy-luci-app-and-theme）==========
-# CONFIG_PACKAGE_luci-app-smartdns is not set
-# 新增或打开需要添加的插件(luci-app)
-CONFIG_PACKAGE_luci-app-smartdns=y  #DNS防污染插件
-CONFIG_PACKAGE_luci-app-socat=y #网络端口转发插件
-CONFIG_PACKAGE_luci-app-jd-dailybonus=y #京东签到插件
-CONFIG_PACKAGE_luci-app-ttnode=y    #甜糖星愿自动收集插件
-CONFIG_PACKAGE_luci-app-wrtbwmon=y  #查看各终端实时流量网速的插件
-# CONFIG_PACKAGE_luci-app-verysync=y  #微力同步插件
-# CONFIG_PACKAGE_luci-app-serverchan=y  #Server酱推送插件
-CONFIG_PACKAGE_luci-app-wol=y #网络唤醒wol
-CONFIG_PACKAGE_luci-lib-docker=y #docker直接管理
-CONFIG_PACKAGE_luci-app-dockerman=y #docker直接管理
+# ==========luci-app-url==========
+# git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
+  git clone https://github.com/siropboy/sirpdboy-package package/sirpdboy-package
+(
+  cd package
+  git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
+  git clone https://github.com/jerrykuku/luci-app-ttnode.git
+  git clone https://github.com/jerrykuku/luci-theme-argon -b 18.06
+  git clone https://github.com/jerrykuku/luci-app-argon-config
+  rm -rf lean/{samba4,luci-app-samba4,luci-app-ttyd,luci-theme-argon,luci-lib-docker}
 
-#=============customerize dependences=====================
-# 京东签到插件依赖
-CONFIG_PACKAGE_luasocket=y
-CONFIG_PACKAGE_lua-md5=y
-CONFIG_PACKAGE_lua-cjson=y
-CONFIG_PACKAGE_luasec=y
-# 网络唤醒etherwake
-CONFIG_PACKAGE_etherwake=y
-#=============================================
-EOF
-# ==========luci-theme==========
-cat >> .config <<EOF
-CONFIG_PACKAGE_luci-theme-argon=y
-#CONFIG_PACKAGE_luci-theme-atmaterial=y
-EOF
+)
+# ==========luci-theme-url==========
+# svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-theme-bootstrap-mod package/luci-theme-bootstrap-mod

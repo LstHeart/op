@@ -35,16 +35,6 @@ CONFIG_PACKAGE_luci-app-wrtbwmon=y  #查看各终端实时流量网速的插件
 CONFIG_PACKAGE_luci-app-wol=y #网络唤醒wol
 CONFIG_PACKAGE_luci-lib-docker=y #docker直接管理
 CONFIG_PACKAGE_luci-app-dockerman=y #docker直接管理
-
-#=============customerize dependences=====================
-# 京东签到插件依赖
-CONFIG_PACKAGE_luasocket=y
-CONFIG_PACKAGE_lua-md5=y
-CONFIG_PACKAGE_lua-cjson=y
-CONFIG_PACKAGE_luasec=y
-# 网络唤醒etherwake
-CONFIG_PACKAGE_etherwake=y
-#=============================================
 EOF
 # ==========luci-theme==========
 cat >> .config <<EOF

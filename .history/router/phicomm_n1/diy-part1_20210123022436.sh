@@ -13,17 +13,7 @@ sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
 
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-echo "src-git sirpdboy-package https://github.com/siropboy/sirpdboy-package" >>./feeds.conf.default
+# sed -i '$a src-git sirpdboy-package https://github.com/siropboy/sirpdboy-package' ./feeds.conf.default
 
 # other
-# 添加三方包，删除原有包、主题等
-(
-    cd package
-    git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
-    git clone https://github.com/jerrykuku/luci-app-ttnode.git
-    git clone https://github.com/jerrykuku/luci-theme-argon -b 18.06
-    git clone https://github.com/jerrykuku/luci-app-argon-config
-    git clone https://github.com/lisaac/luci-lib-docker
-    git clone https://github.com/lisaac/luci-app-dockerman
-    rm -rf lean/{samba4,luci-app-samba4,luci-theme-argon,luci-lib-docker}
-)
+rm -rf package/lean/{samba4,luci-app-samba4,luci-app-ttyd}
