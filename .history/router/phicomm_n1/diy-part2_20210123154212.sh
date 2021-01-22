@@ -29,7 +29,7 @@ CONFIG_PACKAGE_luci-app-smartdns=y  #DNS防污染插件
 CONFIG_PACKAGE_luci-app-socat=y #网络端口转发插件
 CONFIG_PACKAGE_luci-app-jd-dailybonus=y #京东签到插件
 CONFIG_PACKAGE_luci-app-ttnode=y    #甜糖星愿自动收集插件
-
+CONFIG_PACKAGE_luci-app-wrtbwmon=y  #查看各终端实时流量网速的插件
 CONFIG_PACKAGE_luci-app-wol=y #网络唤醒wol
 CONFIG_PACKAGE_luci-lib-docker=y #docker直接管理
 CONFIG_PACKAGE_luci-app-dockerman=y #docker直接管理
@@ -44,7 +44,6 @@ CONFIG_PACKAGE_luci-app-zerotier=y #内网穿透Zerotier
 # CONFIG_PACKAGE_luci-app-frpc is not set #内网穿透frpc客户端
 # CONFIG_PACKAGE_luci-app-frps is not set #内网穿透frpc服务端
 # CONFIG_PACKAGE_luci-app-nlbwmon is not set #带宽监控
-# CONFIG_PACKAGE_luci-app-wrtbwmon=y  #查看各终端实时流量网速的插件,依赖nlbwmon
 
 #=============customerize dependences=====================
 # 京东签到插件依赖
