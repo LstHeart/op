@@ -46,7 +46,6 @@ CONFIG_PACKAGE_luci-app-zerotier=y #内网穿透Zerotier
 EOF
 # ==========luci-theme==========
 cat >> .config <<EOF
-# CONFIG_PACKAGE_luci-theme-bootstrap is not set
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
 EOF
