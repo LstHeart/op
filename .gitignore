@@ -3,3 +3,4 @@ amlogic-s9xxx-openwrt/
 .DS_Store
 npm-debug.log*
 openwrt/
+.history/
