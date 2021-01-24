@@ -19,6 +19,7 @@ sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
 # 添加三方包，删除原有包、主题等
 (
     cd package
+    git clone --depth 1 https://github.com/siropboy/sirpdboy-package.git
     git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus.git
     git clone --depth 1 https://github.com/jerrykuku/luci-app-ttnode.git
     git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
