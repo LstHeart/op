@@ -36,5 +36,6 @@
         "uhci",
         "usbip",
         "usbmon"
-    ]
+    ],
+    "commentTranslate.targetLanguage": "zh-CN"
 }
