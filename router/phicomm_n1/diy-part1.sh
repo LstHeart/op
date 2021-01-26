@@ -36,5 +36,5 @@ sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
         git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git
     fi;
 
-    rm -rf lean/{samba4,luci-app-samba4,luci-theme-argon,luci-lib-docker}
+    rm -rf lean/{samba4,luci-app-samba4,luci-theme-argon,luci-lib-docker,qBittorrent}
 )
