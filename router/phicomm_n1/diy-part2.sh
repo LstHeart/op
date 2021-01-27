@@ -6,24 +6,27 @@
 # Copyright (C) 2020 https://github.com/P3TERX/Actions-OpenWrt
 # Copyright (C) 2020 https://github.com/ophub/op
 # 此脚本用于在 update feeds 之后的相关修改,主要用于修改.config文件,添加或删除luci-app以及修改默认网关或主题等
+# 此脚本运行于编译的根目录
 #========================================================================================================================
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.8）
 # 修改默认网关 192.168.1.1 --> 192.168.31.8
-sed -i 's/192.168.1.1/192.168.31.8/g' package/base-files/files/bin/config_generate
+sed -i 's/ipaddr:-"192.168.1.1"/ipaddr:-"192.168.31.8"/g' package/base-files/files/bin/config_generate
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
 # sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 # Modify default root's password（FROM 'password'[$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.] CHANGE TO 'your password'）
 # sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
+zzz="package/lean/default-settings/files/zzz-default-settings"
+sed -i 's/samba/samba4/' $zzz
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
 # 修改.config中的app配置或主题配置
 # ==========luci-app==========
 # 修改插件配置
-cat >>.config <<-EOF
+cat >.config <<-EOF
 # 新增或打开需要添加的插件(luci-app)
 
 # DNS防污染插件
@@ -41,6 +44,7 @@ CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 
 # 网络唤醒wol
 # CONFIG_DEFAULT_luci-app-wol is not set
+CONFIG_PACKAGE_wol=y
 CONFIG_PACKAGE_luci-app-wol=y
 CONFIG_PACKAGE_luci-i18n-wol-en=y
 CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
@@ -84,7 +88,7 @@ CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
 EOF
 # ==========luci-theme==========
 # 修改主题配置
-cat >>.config <<-EOF
+cat >.config <<-EOF
 # CONFIG_PACKAGE_luci-theme-bootstrap is not set
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
