@@ -36,7 +36,8 @@ CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 # 京东签到插件
 CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 # 甜糖星愿自动收集插件
-CONFIG_PACKAGE_luci-app-ttnode=y
+# CONFIG_PACKAGE_luci-app-ttnode=y
+# CONFIG_PACKAGE_luci-app-ttnode is not set
 
 # 网络唤醒wol
 # CONFIG_DEFAULT_luci-app-wol is not set
