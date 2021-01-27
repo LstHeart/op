@@ -7,7 +7,9 @@
 # Copyright (C) 2020 https://github.com/ophub/op
 # 此脚本用于在 update feeds 之前的相关修改
 #========================================================================================================================
-cd openwrt
+current_dir=(pwd)
+echo "开始执行脚本1,当前目录为:${current_dir}"
+# cd openwrt
 # other
 # 添加三方包，删除原有包、主题等
 (
