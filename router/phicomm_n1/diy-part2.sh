@@ -26,34 +26,34 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 cat >>.config <<-EOF
 # 新增或打开需要添加的插件(luci-app)
 
-#DNS防污染插件
+# DNS防污染插件
 CONFIG_PACKAGE_luci-app-smartdns=y
 
-#网络端口转发插件
+# 网络端口转发插件
 CONFIG_PACKAGE_socat=y
 CONFIG_PACKAGE_luci-app-socat=y
 CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
-#京东签到插件
+# 京东签到插件
 CONFIG_PACKAGE_luci-app-jd-dailybonus=y
-#甜糖星愿自动收集插件
+# 甜糖星愿自动收集插件
 CONFIG_PACKAGE_luci-app-ttnode=y
 
-#网络唤醒wol
+# 网络唤醒wol
 # CONFIG_DEFAULT_luci-app-wol is not set
 CONFIG_PACKAGE_luci-app-wol=y
 CONFIG_PACKAGE_luci-i18n-wol-en=y
 CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
 CONFIG_PACKAGE_etherwake=y
 
-#docker界面管理
+# docker界面管理
 CONFIG_PACKAGE_luci-lib-docker=y
 CONFIG_PACKAGE_luci-app-dockerman=y
 
-#内网穿透Zerotier
+# 内网穿透Zerotier
 CONFIG_PACKAGE_zerotier=y
 CONFIG_PACKAGE_luci-app-zerotier=y
 CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
-#CPU调频
+# CPU调频
 CONFIG_PACKAGE_luci-app-cpufreq=y
 CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
 # CONFIG_DEFAULT_luci-app-cpufreq is not set
