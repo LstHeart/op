@@ -7,7 +7,7 @@
 # Copyright (C) 2020 https://github.com/ophub/op
 # 此脚本用于在 update feeds 之前的相关修改
 #========================================================================================================================
-current_dir=(pwd)
+current_dir=$(pwd)
 echo "开始执行脚本1,当前目录为:${current_dir}"
 # cd openwrt
 # other
@@ -16,8 +16,7 @@ echo "开始执行脚本1,当前目录为:${current_dir}"
     cd package
 
     if [ -d "luci-sirpdboy-package" ]; then
-        for line in $(ls | grep "luci-*")
-        do
+        for line in $(ls | grep "luci-*"); do
             (
                 cd ${line} && git pull
             )
@@ -30,7 +29,7 @@ echo "开始执行脚本1,当前目录为:${current_dir}"
         git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git
         git clone --depth 1 https://github.com/lisaac/luci-lib-docker.git
         git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git
-    fi;
+    fi
 
     sudo rm -rf lean/{samba4,luci-app-samba4,luci-theme-argon,luci-lib-docker,qBittorrent}
 )
