@@ -7,14 +7,7 @@
 # Copyright (C) 2020 https://github.com/ophub/op
 # 此脚本用于在 update feeds 之前的相关修改
 #========================================================================================================================
-
-# Uncomment a feed source
-# sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
-# sed -i 's/\"#src-git\"/\"src-git\"/g' feeds.conf.default
-
-# Add a feed source
-# sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-
+cd openwrt
 # other
 # 添加三方包，删除原有包、主题等
 (
@@ -39,3 +32,9 @@
 
     sudo rm -rf lean/{samba4,luci-app-samba4,luci-theme-argon,luci-lib-docker,qBittorrent}
 )
+# Uncomment a feed source
+# sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+# sed -i 's/\"#src-git\"/\"src-git\"/g' feeds.conf.default
+
+# Add a feed source
+# sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
