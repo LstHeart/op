@@ -27,6 +27,10 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 # ==========luci-app==========
 # 修改插件配置
 cat >.config <<-EOF
+## target
+CONFIG_TARGET_armvirt=y
+CONFIG_TARGET_armvirt_64=y
+CONFIG_TARGET_armvirt_64_Default=y
 # 新增或打开需要添加的插件(luci-app)
 
 # DNS防污染插件
@@ -34,6 +38,7 @@ CONFIG_PACKAGE_luci-app-smartdns=y
 
 # 网络端口转发插件
 CONFIG_PACKAGE_socat=y
+CONFIG_SOCAT_SSL=y
 CONFIG_PACKAGE_luci-app-socat=y
 CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 # 京东签到插件
@@ -62,6 +67,8 @@ CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 CONFIG_PACKAGE_luci-app-cpufreq=y
 CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
 # CONFIG_DEFAULT_luci-app-cpufreq is not set
+# samba4
+CONFIG_PACKAGE_luci-app-samba4=y
 
 
 # ---关闭不需要的插件---
