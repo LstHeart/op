@@ -28,11 +28,12 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 # 修改插件配置
 cat >.config <<-EOF
 ## target
+# 执行make defconfig命令之前,一定要指定编译平台
 CONFIG_TARGET_armvirt=y
 CONFIG_TARGET_armvirt_64=y
 CONFIG_TARGET_armvirt_64_Default=y
-# 新增或打开需要添加的插件(luci-app)
 
+# 新增或打开需要添加的插件(luci-app)
 # DNS防污染插件
 CONFIG_PACKAGE_luci-app-smartdns=y
 
