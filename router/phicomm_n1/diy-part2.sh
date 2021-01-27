@@ -30,24 +30,40 @@ cat >>.config <<-EOF
 CONFIG_PACKAGE_luci-app-smartdns=y
 
 #网络端口转发插件
+CONFIG_PACKAGE_socat=y
 CONFIG_PACKAGE_luci-app-socat=y
+CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 #京东签到插件
 CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 #甜糖星愿自动收集插件
 CONFIG_PACKAGE_luci-app-ttnode=y
 
 #网络唤醒wol
+# CONFIG_DEFAULT_luci-app-wol is not set
 CONFIG_PACKAGE_luci-app-wol=y
+CONFIG_PACKAGE_luci-i18n-wol-en=y
+CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
+CONFIG_PACKAGE_etherwake=y
 
 #docker界面管理
 CONFIG_PACKAGE_luci-lib-docker=y
 CONFIG_PACKAGE_luci-app-dockerman=y
 
 #内网穿透Zerotier
+CONFIG_PACKAGE_zerotier=y
 CONFIG_PACKAGE_luci-app-zerotier=y
+CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
+#CPU调频
+CONFIG_PACKAGE_luci-app-cpufreq=y
+CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
+# CONFIG_DEFAULT_luci-app-cpufreq is not set
+
 
 # ---关闭不需要的插件---
 # 解锁网易云音乐
+# CONFIG_DEFAULT_luci-app-unblockmusic is not set
+# CONFIG_UnblockNeteaseMusic_Go is not set
+# CONFIG_UnblockNeteaseMusic_NodeJS is not set
 # CONFIG_PACKAGE_luci-app-unblockmusic is not set
 # 微力同步插件
 # CONFIG_PACKAGE_luci-app-verysync is not set
