@@ -5,9 +5,11 @@
 # Function: Diy script (After Update feeds, Modify the default IP, hostname, theme, add/remove software packages, etc.)
 # Copyright (C) 2020 https://github.com/P3TERX/Actions-OpenWrt
 # Copyright (C) 2020 https://github.com/ophub/op
+# 此脚本用于在 update feeds 之后的相关修改,主要用于修改.config文件,添加或删除luci-app以及修改默认网关或主题等
 #========================================================================================================================
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.8）
+# 修改默认网关 192.168.1.1 --> 192.168.31.8
 sed -i 's/192.168.1.1/192.168.31.8/g' package/base-files/files/bin/config_generate
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
 # sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
@@ -20,34 +22,53 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
 # 修改.config中的app配置或主题配置
 # ==========luci-app==========
-cat >> .config <<EOF
-# ==========add from diy-part2.sh or open the origin plugin（Mydiy-luci-app-and-theme）==========
-# CONFIG_PACKAGE_luci-app-smartdns is not set
+# 修改插件配置
+cat >>.config <<-EOF
 # 新增或打开需要添加的插件(luci-app)
-CONFIG_PACKAGE_luci-app-smartdns=y  #DNS防污染插件
-CONFIG_PACKAGE_luci-app-socat=y #网络端口转发插件
-CONFIG_PACKAGE_luci-app-jd-dailybonus=y #京东签到插件
-CONFIG_PACKAGE_luci-app-ttnode=y    #甜糖星愿自动收集插件
-CONFIG_PACKAGE_luci-app-wol=y #网络唤醒wol
-CONFIG_PACKAGE_luci-lib-docker=y #docker直接管理
-CONFIG_PACKAGE_luci-app-dockerman=y #docker直接管理
-CONFIG_PACKAGE_luci-app-zerotier=y #内网穿透Zerotier
 
-# CONFIG_PACKAGE_luci-app-unblockmusic is not set #解锁网易云音乐
-# CONFIG_PACKAGE_luci-app-verysync is not set #微力同步插件
-# CONFIG_PACKAGE_luci-app-serverchan is not set  #Server酱推送插件
-# CONFIG_PACKAGE_luci-app-syncdial is not set #多播插件
-# CONFIG_PACKAGE_luci-app-mwan3 is not set #多播插件
-# CONFIG_PACKAGE_luci-app-mwan3helper is not set #多播插件
-# CONFIG_PACKAGE_luci-app-frpc is not set #内网穿透frpc客户端
-# CONFIG_PACKAGE_luci-app-frps is not set #内网穿透frpc服务端
-# CONFIG_PACKAGE_luci-app-nlbwmon is not set #带宽监控
-# CONFIG_PACKAGE_luci-app-wrtbwmon=y  #查看各终端实时流量网速的插件,依赖nlbwmon
+#DNS防污染插件
+CONFIG_PACKAGE_luci-app-smartdns=y
+
+#网络端口转发插件
+CONFIG_PACKAGE_luci-app-socat=y
+#京东签到插件
+CONFIG_PACKAGE_luci-app-jd-dailybonus=y
+#甜糖星愿自动收集插件
+CONFIG_PACKAGE_luci-app-ttnode=y
+
+#网络唤醒wol
+CONFIG_PACKAGE_luci-app-wol=y
+
+#docker界面管理
+CONFIG_PACKAGE_luci-lib-docker=y
+CONFIG_PACKAGE_luci-app-dockerman=y
+
+#内网穿透Zerotier
+CONFIG_PACKAGE_luci-app-zerotier=y
+
+# ---关闭不需要的插件---
+# 解锁网易云音乐
+# CONFIG_PACKAGE_luci-app-unblockmusic is not set
+# 微力同步插件
+# CONFIG_PACKAGE_luci-app-verysync is not set
+# Server酱推送插件
+# CONFIG_PACKAGE_luci-app-serverchan is not set
+# 多播插件
+# CONFIG_PACKAGE_luci-app-syncdial is not set
+# CONFIG_PACKAGE_luci-app-mwan3 is not set
+# CONFIG_PACKAGE_luci-app-mwan3helper is not set
+# 内网穿透frpc
+# CONFIG_PACKAGE_luci-app-frpc is not set
+# CONFIG_PACKAGE_luci-app-frps is not set
+# 带宽监控
+# CONFIG_PACKAGE_luci-app-nlbwmon is not set
+# 查看各终端实时流量网速的插件,依赖nlbwmon
+# CONFIG_PACKAGE_luci-app-wrtbwmon=y
 EOF
 # ==========luci-theme==========
-cat >> .config <<EOF
+# 修改主题配置
+cat >>.config <<-EOF
 # CONFIG_PACKAGE_luci-theme-bootstrap is not set
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
 EOF
-echo "diy-part2已执行!"

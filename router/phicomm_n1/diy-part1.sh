@@ -5,6 +5,7 @@
 # Function: Diy script (Before Update feeds, Modify the default IP, hostname, theme, add/remove software packages, etc.)
 # Copyright (C) 2020 https://github.com/P3TERX/Actions-OpenWrt
 # Copyright (C) 2020 https://github.com/ophub/op
+# 此脚本用于在 update feeds 之前的相关修改
 #========================================================================================================================
 
 # Uncomment a feed source
