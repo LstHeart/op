@@ -6,7 +6,6 @@
 # Copyright (C) 2020 https://github.com/P3TERX/Actions-OpenWrt
 # Copyright (C) 2020 https://github.com/ophub/op
 # 此脚本用于在 update feeds 之前的相关修改
-
 # cd openwrt
 # other
 # 添加三方包，删除原有包、主题等
