@@ -20,6 +20,8 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 zzz="package/lean/default-settings/files/zzz-default-settings"
 sed -i 's/samba/samba4/' $zzz
+# 删除default包
+sed -i 's/\bluci-app-.*\b//g' ./include/target.mk
 # sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
@@ -29,52 +31,52 @@ sed -i 's/samba/samba4/' $zzz
 cat >>.config <<-EOF
 # ==========luci app add==========
 # DNS防污染插件
-# CONFIG_PACKAGE_luci-app-smartdns=y
+CONFIG_PACKAGE_luci-app-smartdns=m
 
 # 网络端口转发插件
-# CONFIG_PACKAGE_socat=y
-# CONFIG_SOCAT_SSL=y
-# CONFIG_PACKAGE_luci-app-socat=y
-# CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
+CONFIG_PACKAGE_socat=y
+CONFIG_SOCAT_SSL=y
+CONFIG_PACKAGE_luci-app-socat=m
+CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 
 # 京东签到插件
-# CONFIG_PACKAGE_luci-app-jd-dailybonus=y
+CONFIG_PACKAGE_luci-app-jd-dailybonus=m
 
 # 甜糖星愿自动收集插件
-# CONFIG_PACKAGE_luci-app-ttnode=y
+CONFIG_PACKAGE_luci-app-ttnode=m
 
 # 网络唤醒wol
-# CONFIG_PACKAGE_wol=y
-# CONFIG_PACKAGE_etherwake=y
-# CONFIG_PACKAGE_luci-app-wol=y
-# CONFIG_PACKAGE_luci-i18n-wol-en=y
-# CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
+CONFIG_PACKAGE_wol=y
+CONFIG_PACKAGE_etherwake=y
+CONFIG_PACKAGE_luci-app-wol=m
+CONFIG_PACKAGE_luci-i18n-wol-en=y
+CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
 
 # docker界面管理
-# CONFIG_PACKAGE_luci-lib-docker=y
-# CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-lib-docker=y
+CONFIG_PACKAGE_luci-app-dockerman=y
 
 # 内网穿透Zerotier
-# CONFIG_PACKAGE_zerotier=y
-# CONFIG_PACKAGE_luci-app-zerotier=y
-# CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
+CONFIG_PACKAGE_zerotier=y
+CONFIG_PACKAGE_luci-app-zerotier=m
+CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 
 # CPU调频
-# CONFIG_PACKAGE_luci-app-cpufreq=y
-# CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
+CONFIG_PACKAGE_luci-app-cpufreq=m
+CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
 # 网络实时监控图形界面
-# CONFIG_PACKAGE_luci-app-netdata is not set
+CONFIG_PACKAGE_luci-app-netdata=m
 
 # 网络共享samba4
-# CONFIG_PACKAGE_luci-app-samba4=y
+CONFIG_PACKAGE_luci-app-samba4=m
 # usb打印
-# CONFIG_PACKAGE_kmod-usb-printer=y
+CONFIG_PACKAGE_kmod-usb-printer=m
 
 # ==========luci app remove==========
 # 解锁网易云音乐
 # CONFIG_UnblockNeteaseMusic_Go is not set
-# CONFIG_UnblockNeteaseMusic_NodeJS is not set
-# CONFIG_PACKAGE_luci-app-unblockmusic is not set
+CONFIG_UnblockNeteaseMusic_NodeJS=y
+CONFIG_PACKAGE_luci-app-unblockmusic=m
 
 # 微力同步插件
 # CONFIG_PACKAGE_luci-app-verysync is not set
@@ -96,32 +98,32 @@ CONFIG_PACKAGE_zerotier=y
 CONFIG_PACKAGE_luci-app-zerotier=y
 
 # 带宽流量查看
-# CONFIG_PACKAGE_luci-app-nlbwmon is not set
-# CONFIG_PACKAGE_luci-app-wrtbwmon is not set
+CONFIG_PACKAGE_luci-app-nlbwmon=m
+CONFIG_PACKAGE_luci-app-wrtbwmon=m
 
 # Turbo ACC 网络加速,二选1,建议sfe
-# CONFIG_PACKAGE_luci-app-sfe is not set
+CONFIG_PACKAGE_luci-app-sfe=m
 # CONFIG_PACKAGE_luci-app-flowoffload is not set
 
 # KMS激活服务器
-# CONFIG_DEFAULT_luci-app-vlmcsd is not set
+CONFIG_DEFAULT_luci-app-vlmcsd=m
 # FTP服务器
 # CONFIG_DEFAULT_luci-app-vsftpd is not set
 # 上网时间控制
-# CONFIG_PACKAGE_luci-app-accesscontrol is not set
+CONFIG_PACKAGE_luci-app-accesscontrol=m
 # BT下载
 # CONFIG_PACKAGE_luci-app-transmission is not set
 # WiFi访客网络
 # CONFIG_PACKAGE_luci-app-guest-wifi is not set
 # 网络设置向导
-# CONFIG_PACKAGE_luci-app-meshwizard is not set
+CONFIG_PACKAGE_luci-app-meshwizard=m
 # 根据IP限速
-# CONFIG_PACKAGE_luci-app-eqos is not set
+CONFIG_PACKAGE_luci-app-eqos=m
 
 # ==========luci-theme==========
 # 修改主题配置
 # CONFIG_PACKAGE_luci-theme-bootstrap is not set
 CONFIG_PACKAGE_luci-theme-argon=y
-# CONFIG_PACKAGE_luci-app-argon-config=y
+CONFIG_PACKAGE_luci-app-argon-config=m
 # others
 EOF
