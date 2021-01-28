@@ -33,6 +33,8 @@ cat >.config <<-EOF
 CONFIG_TARGET_armvirt=y
 CONFIG_TARGET_armvirt_64=y
 CONFIG_TARGET_armvirt_64_Default=y
+CONFIG_TARGET_KERNEL_PARTSIZE=256
+CONFIG_TARGET_ROOTFS_PARTSIZE=1024
 
 # ==========luci app add==========
 # DNS防污染插件
