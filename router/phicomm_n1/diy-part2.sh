@@ -20,7 +20,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 zzz="package/lean/default-settings/files/zzz-default-settings"
 sed -i 's/samba/samba4/' $zzz
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
+# sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
 # 修改.config中的app配置或主题配置
@@ -49,13 +49,13 @@ CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 
 # 甜糖星愿自动收集插件
-# CONFIG_PACKAGE_luci-app-ttnode=y
+CONFIG_PACKAGE_luci-app-ttnode=y
 # CONFIG_PACKAGE_luci-app-ttnode is not set
 
 # 网络唤醒wol
-# CONFIG_DEFAULT_luci-app-wol is not set
+CONFIG_DEFAULT_luci-app-wol=y
 CONFIG_PACKAGE_wol=y
-CONFIG_PACKAGE_luci-app-wol=y
+# CONFIG_PACKAGE_luci-app-wol=y
 CONFIG_PACKAGE_luci-i18n-wol-en=y
 CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
 CONFIG_PACKAGE_etherwake=y
@@ -72,16 +72,18 @@ CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 # CPU调频
 CONFIG_PACKAGE_luci-app-cpufreq=y
 CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
-# CONFIG_DEFAULT_luci-app-cpufreq is not set
+CONFIG_DEFAULT_luci-app-cpufreq=y
 
 # samba4
 CONFIG_PACKAGE_luci-app-samba4=y
+# usb打印
+CONFIG_PACKAGE_kmod-usb-printer=y
 
 # ==========luci app remove==========
 # 解锁网易云音乐
-# CONFIG_DEFAULT_luci-app-unblockmusic is not set
+CONFIG_DEFAULT_luci-app-unblockmusic=y
 # CONFIG_UnblockNeteaseMusic_Go is not set
-# CONFIG_UnblockNeteaseMusic_NodeJS is not set
+CONFIG_UnblockNeteaseMusic_NodeJS=y
 # CONFIG_PACKAGE_luci-app-unblockmusic is not set
 
 # 微力同步插件
@@ -110,4 +112,6 @@ CONFIG_PACKAGE_luci-app-samba4=y
 # CONFIG_PACKAGE_luci-theme-bootstrap is not set
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
+# others
+CONFIG_PACKAGE_luci-lib-ipkg=y
 EOF

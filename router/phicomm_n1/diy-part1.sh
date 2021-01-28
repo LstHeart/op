@@ -36,3 +36,7 @@
 
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+
+# Repalce a feed source
+sed -i "s/coolsnowwolf\/luci/Lienol\/luci.git;18.06/" ./feeds.conf.default
+sed -i "s/coolsnowwolf\/packages/Lienol\/openwrt-packages.git;main/" ./feeds.conf.default
