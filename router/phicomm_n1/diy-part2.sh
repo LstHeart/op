@@ -76,7 +76,7 @@ CONFIG_PACKAGE_luci-app-netdata=y
 
 # 网络共享samba4
 # CONFIG_PACKAGE_luci-app-samba is not set
-# CONFIG_PACKAGE_samba36-server is note set
+# CONFIG_PACKAGE_samba36-server is not set
 CONFIG_PACKAGE_samba4-libs=y
 CONFIG_PACKAGE_samba4-server=y
 CONFIG_PACKAGE_luci-app-samba4=y
