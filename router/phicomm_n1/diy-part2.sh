@@ -50,8 +50,7 @@ CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 
 # 甜糖星愿自动收集插件
-CONFIG_PACKAGE_luci-app-ttnode=y
-
+# CONFIG_PACKAGE_luci-app-ttnode=y
 # 网络唤醒wol
 CONFIG_PACKAGE_wol=y
 CONFIG_PACKAGE_etherwake=y
@@ -75,10 +74,8 @@ CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
 CONFIG_PACKAGE_luci-app-netdata=y
 
 # 网络共享samba4
+# CONFIG_PACKAGE_autosamba is not set
 # CONFIG_PACKAGE_luci-app-samba is not set
-# CONFIG_PACKAGE_samba36-server is not set
-CONFIG_PACKAGE_samba4-libs=y
-CONFIG_PACKAGE_samba4-server=y
 CONFIG_PACKAGE_luci-app-samba4=y
 # usb打印
 CONFIG_PACKAGE_kmod-usb-printer=m
