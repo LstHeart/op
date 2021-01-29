@@ -31,12 +31,19 @@ sed -i 's/\bluci-app-.*\b//g' ./include/target.mk
 cat >>.config <<-EOF
 # ==========luci app add==========
 # DNS防污染插件
-CONFIG_PACKAGE_luci-app-smartdns=m
+CONFIG_PACKAGE_luci-app-smartdns=y
+# 科学网络
+CONFIG_PACKAGE_luci-app-ssr-plus=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
 
 # 网络端口转发插件
 CONFIG_PACKAGE_socat=y
 CONFIG_SOCAT_SSL=y
-CONFIG_PACKAGE_luci-app-socat=m
+CONFIG_PACKAGE_luci-app-socat=y
 CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 
 # 京东签到插件
@@ -48,7 +55,7 @@ CONFIG_PACKAGE_luci-app-ttnode=y
 # 网络唤醒wol
 CONFIG_PACKAGE_wol=y
 CONFIG_PACKAGE_etherwake=y
-CONFIG_PACKAGE_luci-app-wol=m
+CONFIG_PACKAGE_luci-app-wol=y
 CONFIG_PACKAGE_luci-i18n-wol-en=y
 CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
 
@@ -58,17 +65,18 @@ CONFIG_PACKAGE_luci-app-dockerman=y
 
 # 内网穿透Zerotier
 CONFIG_PACKAGE_zerotier=y
-CONFIG_PACKAGE_luci-app-zerotier=m
+CONFIG_PACKAGE_luci-app-zerotier=y
 CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 
 # CPU调频
-CONFIG_PACKAGE_luci-app-cpufreq=m
+CONFIG_PACKAGE_luci-app-cpufreq=y
 CONFIG_PACKAGE_luci-i18n-cpufreq-zh_Hans=y
 # 网络实时监控图形界面
-CONFIG_PACKAGE_luci-app-netdata=m
+CONFIG_PACKAGE_luci-app-netdata=y
 
 # 网络共享samba4
-CONFIG_PACKAGE_luci-app-samba4=m
+# CONFIG_PACKAGE_luci-app-samba is not set
+CONFIG_PACKAGE_luci-app-samba4=y
 # usb打印
 CONFIG_PACKAGE_kmod-usb-printer=m
 
@@ -76,7 +84,7 @@ CONFIG_PACKAGE_kmod-usb-printer=m
 # 解锁网易云音乐
 # CONFIG_UnblockNeteaseMusic_Go is not set
 CONFIG_UnblockNeteaseMusic_NodeJS=y
-CONFIG_PACKAGE_luci-app-unblockmusic=m
+CONFIG_PACKAGE_luci-app-unblockmusic=y
 
 # 微力同步插件
 # CONFIG_PACKAGE_luci-app-verysync is not set
@@ -102,7 +110,7 @@ CONFIG_PACKAGE_luci-app-nlbwmon=m
 CONFIG_PACKAGE_luci-app-wrtbwmon=m
 
 # Turbo ACC 网络加速,二选1,建议sfe
-CONFIG_PACKAGE_luci-app-sfe=m
+CONFIG_PACKAGE_luci-app-sfe=y
 # CONFIG_PACKAGE_luci-app-flowoffload is not set
 
 # KMS激活服务器
@@ -118,7 +126,7 @@ CONFIG_PACKAGE_luci-app-accesscontrol=m
 # 网络设置向导
 CONFIG_PACKAGE_luci-app-meshwizard=m
 # 根据IP限速
-CONFIG_PACKAGE_luci-app-eqos=m
+CONFIG_PACKAGE_luci-app-eqos=y
 
 # ==========luci-theme==========
 # 修改主题配置
