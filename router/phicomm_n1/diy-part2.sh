@@ -22,6 +22,7 @@ zzz="package/lean/default-settings/files/zzz-default-settings"
 sed -i 's/samba/samba4/' $zzz
 # 删除default包
 sed -i 's/\bluci-app-.*\b//g' ./include/target.mk
+sed -i '/FEATURES+=/ { s/cpiogz //; s/ext4 //; s/ramdisk //; s/squashfs //; }' target/linux/armvirt/Makefile
 # sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
