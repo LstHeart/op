@@ -40,10 +40,10 @@ CONFIG_PACKAGE_luci-app-socat=m
 CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 
 # 京东签到插件
-CONFIG_PACKAGE_luci-app-jd-dailybonus=m
+CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 
 # 甜糖星愿自动收集插件
-CONFIG_PACKAGE_luci-app-ttnode=m
+CONFIG_PACKAGE_luci-app-ttnode=y
 
 # 网络唤醒wol
 CONFIG_PACKAGE_wol=y
