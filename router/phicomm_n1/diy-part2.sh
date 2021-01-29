@@ -23,6 +23,16 @@ sed -i 's/samba/samba4/' $zzz
 # 删除default包
 sed -i 's/\bluci-app-.*\b//g' ./include/target.mk
 sed -i '/FEATURES+=/ { s/cpiogz //; s/ext4 //; s/ramdisk //; s/squashfs //; }' target/linux/armvirt/Makefile
+packages=" \
+brcmfmac-firmware-43430-sdio brcmfmac-firmware-43455-sdio kmod-brcmfmac wpad \
+kmod-fs-ext4 kmod-fs-vfat kmod-fs-exfat dosfstools e2fsprogs ntfs-3g \
+kmod-usb2 kmod-usb3 kmod-usb-storage kmod-usb-storage-extras kmod-usb-storage-uas \
+kmod-usb-net kmod-usb-net-asix-ax88179 kmod-usb-net-rtl8150 kmod-usb-net-rtl8152 \
+blkid lsblk parted fdisk cfdisk losetup resize2fs tune2fs pv unzip \
+lscpu htop iperf3 curl lm-sensors python3 "
+for x in $packages; do
+    sed -i "/DEFAULT_PACKAGES/ s/$/ $x/" target/linux/armvirt/Makefile
+done
 # sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
@@ -51,7 +61,7 @@ CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 
 # 甜糖星愿自动收集插件
-# CONFIG_PACKAGE_luci-app-ttnode=y
+CONFIG_PACKAGE_luci-app-ttnode=y
 # 网络唤醒wol
 CONFIG_PACKAGE_wol=y
 CONFIG_PACKAGE_etherwake=y
