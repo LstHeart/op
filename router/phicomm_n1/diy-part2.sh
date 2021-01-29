@@ -146,4 +146,6 @@ CONFIG_PACKAGE_luci-app-eqos=y
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=m
 # others
+# 虚拟机镜像
+CONFIG_VMDK_IMAGES=y
 EOF
