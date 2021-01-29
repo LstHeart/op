@@ -31,7 +31,7 @@
     sudo rm -rf lean/{samba4,luci-app-samba4,luci-theme-argon,luci-lib-docker,qBittorrent}
 )
 # Uncomment a feed source
-# sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
 # sed -i 's/\"#src-git\"/\"src-git\"/g' feeds.conf.default
 
 # Add a feed source
