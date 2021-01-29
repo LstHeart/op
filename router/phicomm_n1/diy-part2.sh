@@ -47,7 +47,7 @@ CONFIG_PACKAGE_luci-app-smartdns=y
 # 科学网络
 CONFIG_PACKAGE_luci-app-ssr-plus=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
