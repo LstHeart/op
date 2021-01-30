@@ -15,19 +15,17 @@
     if [ -d "luci-sirpdboy-package" ]; then
         for line in $(ls | grep "luci-*"); do
             (
-                cd ${line} && git pull
+                rm -rf ${line} && sync
             )
         done
-    else
-        git clone --depth 1 https://github.com/sirpdboy/sirpdboy-package.git luci-sirpdboy-package
-        git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus.git
-        git clone --depth 1 https://github.com/jerrykuku/luci-app-ttnode.git
-        git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
-        git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git
-        git clone --depth 1 https://github.com/lisaac/luci-lib-docker.git
-        git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git
     fi
-
+    git clone --depth 1 https://github.com/sirpdboy/sirpdboy-package.git luci-sirpdboy-package
+    git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus.git
+    git clone --depth 1 https://github.com/jerrykuku/luci-app-ttnode.git
+    git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
+    git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git
+    git clone --depth 1 https://github.com/lisaac/luci-lib-docker.git
+    git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git
     sudo rm -rf lean/{samba4,luci-app-samba4,luci-theme-argon,luci-lib-docker,qBittorrent}
 )
 # Uncomment a feed source

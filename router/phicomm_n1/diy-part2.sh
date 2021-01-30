@@ -45,13 +45,15 @@ cat >>.config <<-EOF
 # DNS防污染插件
 CONFIG_PACKAGE_luci-app-smartdns=y
 # 科学网络
-# CONFIG_PACKAGE_luci-app-ssr-plus=y
+# CONFIG_PACKAGE_luci-app-ssr-plus is not set
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks is not set
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server is not set
 
 # 网络端口转发插件
 CONFIG_PACKAGE_socat=y
 CONFIG_SOCAT_SSL=y
 CONFIG_PACKAGE_luci-app-socat=y
-CONFIG_PACKAGE_luci-i18n-socat-zh-cn=y
 
 # 京东签到插件
 CONFIG_PACKAGE_luci-app-jd-dailybonus=y
@@ -62,8 +64,6 @@ CONFIG_PACKAGE_luci-app-ttnode=y
 CONFIG_PACKAGE_wol=y
 CONFIG_PACKAGE_etherwake=y
 CONFIG_PACKAGE_luci-app-wol=y
-CONFIG_PACKAGE_luci-i18n-wol-en=y
-CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
 
 # docker界面管理
 CONFIG_PACKAGE_luci-lib-docker=y
