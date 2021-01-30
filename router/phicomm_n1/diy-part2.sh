@@ -45,7 +45,7 @@ cat >>.config <<-EOF
 # DNS防污染插件
 CONFIG_PACKAGE_luci-app-smartdns=y
 # 科学网络
-CONFIG_PACKAGE_luci-app-ssr-plus=y
+# CONFIG_PACKAGE_luci-app-ssr-plus=y
 
 # 网络端口转发插件
 CONFIG_PACKAGE_socat=y
