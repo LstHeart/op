@@ -12,33 +12,21 @@
 # 添加三方包，删除原有包、主题等
 (
     cd package
-
-    if [ -d "luci-sirpdboy-package" ]; then
-        for line in $(ls | grep "luci-*"); do
-            (
-                rm -rf ${line} && sync
-            )
-        done
-    fi
-    git clone --depth 1 https://github.com/sirpdboy/sirpdboy-package.git luci-sirpdboy-package
-    git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus.git
-    git clone --depth 1 https://github.com/jerrykuku/luci-app-ttnode.git
-    git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
-    git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git
-    git clone --depth 1 https://github.com/lisaac/luci-lib-docker.git
-    git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git
-    sudo rm -rf lean/{samba4,luci-app-samba4,luci-theme-argon,luci-lib-docker,qBittorrent}
+    git clone --depth 1 --recurse-submodules https://github.com/LstHeart/op-package.git lstheart-packages
+    # git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
+    sudo rm -rf lean/{luci-theme-argon,luci-lib-docker,luci-app-jd-dailybonus,v2ray,v2ray-plugin,qBittorrent}
+    # sudo rm -rf lean/{luci-theme-argon,luci-lib-docker,qBittorrent,luci-app-jd-dailybonus}
+    cp -Rf lstheart-packages/* ./lean/
+    rm -rf ./lstheart-packages
 )
 
 # Change feeds source
 cat >./feeds.conf.default<<-EOF
-# src-git packages https://github.com/coolsnowwolf/packages
-# src-git luci https://github.com/coolsnowwolf/luci
-src-git packages https://github.com/Lienol/openwrt-packages.git;main
-src-git luci https://github.com/luci/Lienol/openwrt-luci.git;18.06
+src-git packages https://github.com/coolsnowwolf/packages
+src-git luci https://github.com/coolsnowwolf/luci
+# src-git packages https://github.com/Lienol/openwrt-packages.git;main
+# src-git luci https://github.com/luci/Lienol/openwrt-luci.git;18.06
 src-git routing https://git.openwrt.org/feed/routing.git
 src-git telephony https://git.openwrt.org/feed/telephony.git
 src-git freifunk https://github.com/freifunk/openwrt-packages.git
-src-git kenzo https://github.com/kenzok8/openwrt-packages
-src-git small https://github.com/kenzok8/small
 EOF

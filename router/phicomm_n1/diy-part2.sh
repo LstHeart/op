@@ -49,6 +49,9 @@ CONFIG_PACKAGE_luci-app-smartdns=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server is not set
+# passwall编译失败需取消trojan-go
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO is not set
+CONFIG_PACKAGE_luci-app-passwall=y
 
 # 网络端口转发插件
 CONFIG_PACKAGE_socat=y
@@ -72,7 +75,6 @@ CONFIG_PACKAGE_luci-app-dockerman=y
 # 内网穿透Zerotier
 CONFIG_PACKAGE_zerotier=y
 CONFIG_PACKAGE_luci-app-zerotier=y
-CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 
 # CPU调频
 CONFIG_PACKAGE_luci-app-cpufreq=y
@@ -85,7 +87,7 @@ CONFIG_PACKAGE_luci-app-netdata=y
 # CONFIG_PACKAGE_luci-app-samba is not set
 CONFIG_PACKAGE_luci-app-samba4=y
 # usb打印
-CONFIG_PACKAGE_kmod-usb-printer=m
+CONFIG_PACKAGE_kmod-usb-printer=y
 
 # ==========luci app remove==========
 # 解锁网易云音乐
@@ -134,6 +136,8 @@ CONFIG_PACKAGE_luci-app-accesscontrol=m
 CONFIG_PACKAGE_luci-app-meshwizard=m
 # 根据IP限速
 CONFIG_PACKAGE_luci-app-eqos=y
+# 内存释放
+CONFIG_PACKAGE_luci-app-ramfree=y
 
 # ==========luci-theme==========
 # 修改主题配置
