@@ -51,11 +51,9 @@ CONFIG_PACKAGE_luci-app-smartdns=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server is not set
 # passwall编译失败需取消trojan-go
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO is not set
-CONFIG_PACKAGE_luci-app-passwall=y
+# CONFIG_PACKAGE_luci-app-passwall is not set
 
 # 网络端口转发插件
-CONFIG_PACKAGE_socat=y
-CONFIG_SOCAT_SSL=y
 CONFIG_PACKAGE_luci-app-socat=y
 
 # 京东签到插件
@@ -64,8 +62,6 @@ CONFIG_PACKAGE_luci-app-jd-dailybonus=y
 # 甜糖星愿自动收集插件
 CONFIG_PACKAGE_luci-app-ttnode=y
 # 网络唤醒wol
-CONFIG_PACKAGE_wol=y
-CONFIG_PACKAGE_etherwake=y
 CONFIG_PACKAGE_luci-app-wol=y
 
 # docker界面管理
@@ -73,7 +69,6 @@ CONFIG_PACKAGE_luci-lib-docker=y
 CONFIG_PACKAGE_luci-app-dockerman=y
 
 # 内网穿透Zerotier
-CONFIG_PACKAGE_zerotier=y
 CONFIG_PACKAGE_luci-app-zerotier=y
 
 # CPU调频
@@ -91,8 +86,6 @@ CONFIG_PACKAGE_kmod-usb-printer=y
 
 # ==========luci app remove==========
 # 解锁网易云音乐
-# CONFIG_UnblockNeteaseMusic_Go is not set
-CONFIG_UnblockNeteaseMusic_NodeJS=y
 CONFIG_PACKAGE_luci-app-unblockmusic=y
 
 # 微力同步插件
@@ -111,7 +104,6 @@ CONFIG_PACKAGE_luci-app-unblockmusic=y
 # CONFIG_PACKAGE_luci-app-frpc is not set
 # CONFIG_PACKAGE_luci-app-frps is not set
 # 内网穿透Zerotier
-CONFIG_PACKAGE_zerotier=y
 CONFIG_PACKAGE_luci-app-zerotier=y
 
 # 带宽流量查看
@@ -136,8 +128,6 @@ CONFIG_PACKAGE_luci-app-accesscontrol=m
 CONFIG_PACKAGE_luci-app-meshwizard=m
 # 根据IP限速
 CONFIG_PACKAGE_luci-app-eqos=y
-# 内存释放
-CONFIG_PACKAGE_luci-app-ramfree=y
 
 # ==========luci-theme==========
 # 修改主题配置
