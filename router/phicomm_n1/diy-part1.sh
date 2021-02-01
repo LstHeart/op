@@ -16,7 +16,7 @@
     # git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
     # sudo rm -rf lean/{luci-theme-argon,luci-lib-docker,qBittorrent,luci-app-jd-dailybonus}
     cp -Rf lstheart-packages/* ./lean/
-    sudo rm -rf lean/{qBittorrent,luci-app-qbittorrent,luci-app-passwall,luci-app-ssr-plus}
+    sudo rm -rf lean/{qBittorrent,luci-app-qbittorrent}
     rm -rf ./lstheart-packages
 )
 

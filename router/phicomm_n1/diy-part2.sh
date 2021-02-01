@@ -13,8 +13,7 @@
 # 修改默认网关 192.168.1.1 --> 192.168.31.8
 sed -i 's/ipaddr:-"192.168.1.1"/ipaddr:-"192.168.31.8"/g' package/base-files/files/bin/config_generate
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
-# sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 # Modify default root's password（FROM 'password'[$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.] CHANGE TO 'your password'）
 # sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
@@ -45,13 +44,33 @@ cat >>.config <<-EOF
 # DNS防污染插件
 CONFIG_PACKAGE_luci-app-smartdns=y
 # 科学网络
-# CONFIG_PACKAGE_luci-app-ssr-plus is not set
+# ssr-plus
+CONFIG_PACKAGE_luci-app-ssr-plus=m
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks is not set
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan is not set
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2 is not set
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy=y
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server is not set
-# passwall编译失败需取消trojan-go
+# passwall
+CONFIG_PACKAGE_luci-app-passwall=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Server=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Server=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray is not set
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO is not set
-# CONFIG_PACKAGE_luci-app-passwall is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook is not set
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_NaiveProxy=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_kcptun is not set
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_haproxy=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_v2ray-plugin=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_simple-obfs=y
 
 # 网络端口转发插件
 CONFIG_PACKAGE_luci-app-socat=y
@@ -131,8 +150,9 @@ CONFIG_PACKAGE_luci-app-eqos=y
 
 # ==========luci-theme==========
 # 修改主题配置
-# CONFIG_PACKAGE_luci-theme-bootstrap is not set
+CONFIG_PACKAGE_luci-theme-bootstrap=y
 CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-theme-argon_new=y
 CONFIG_PACKAGE_luci-app-argon-config=m
 # others
 # 虚拟机镜像
