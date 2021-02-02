@@ -11,17 +11,23 @@
 # cd openwrt
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.8）
 # 修改默认网关 192.168.1.1 --> 192.168.31.8
-sed -i 's/ipaddr:-"192.168.1.1"/ipaddr:-"192.168.31.8"/g' package/base-files/files/bin/config_generate
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
 # sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 # Modify default root's password（FROM 'password'[$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.] CHANGE TO 'your password'）
 # sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
-zzz="package/lean/default-settings/files/zzz-default-settings"
-sed -i 's/samba/samba4/' $zzz
-# 删除default包
-sed -i 's/\bluci-app-.*\b//g' ./include/target.mk
-sed -i '/FEATURES+=/ { s/cpiogz //; s/ext4 //; s/ramdisk //; s/squashfs //; }' target/linux/armvirt/Makefile
+lean_zzz="package/lean/default-settings/files/zzz-default-settings"
+lienol_zzz="package/default-settings/files/zzz-default-settings"
+if [ -d ${lean_zzz} ];then
+    sed -i 's/samba/samba4/' $zzz
+    sed -i 's/ipaddr:-"192.168.1.1"/ipaddr:-"192.168.31.8"/g' package/base-files/files/bin/config_generate
+    sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
+elif [ -d ${lienol_zzz} ];then
+    sed -i "s/'192.168.119.10'/'192.168.31.8'/" $zzz
+    sed -i 's/#uci set network/uci set network/' $zzz
+    sed -i 's/#uci commit network/uci commit network/' $zzz
+    #sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+fi
 # packages=" \
 # brcmfmac-firmware-43430-sdio brcmfmac-firmware-43455-sdio kmod-brcmfmac wpad \
 # kmod-fs-ext4 kmod-fs-vfat kmod-fs-exfat dosfstools e2fsprogs ntfs-3g \
@@ -33,8 +39,10 @@ sed -i '/FEATURES+=/ { s/cpiogz //; s/ext4 //; s/ramdisk //; s/squashfs //; }' t
 # for x in $packages; do
 #     sed -i "/DEFAULT_PACKAGES/ s/$/ $x/" target/linux/armvirt/Makefile
 # done
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 
+# 删除default包
+sed -i 's/\bluci-app-.*\b//g' ./include/target.mk
+sed -i '/FEATURES+=/ { s/cpiogz //; s/ext4 //; s/ramdisk //; s/squashfs //; }' target/linux/armvirt/Makefile
 # Mydiy-luci-app-and-theme（use to /.config luci-app&theme）
 # 修改.config中的app配置或主题配置
 # ==========luci-app==========
