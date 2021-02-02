@@ -21,12 +21,3 @@
 )
 
 # Change feeds source
-cat >./feeds.conf.default<<-EOF
-src-git packages https://github.com/coolsnowwolf/packages
-src-git luci https://github.com/coolsnowwolf/luci
-# src-git packages https://github.com/Lienol/openwrt-packages.git;main
-# src-git luci https://github.com/luci/Lienol/openwrt-luci.git;18.06
-src-git routing https://git.openwrt.org/feed/routing.git
-src-git telephony https://git.openwrt.org/feed/telephony.git
-src-git freifunk https://github.com/freifunk/openwrt-packages.git
-EOF
