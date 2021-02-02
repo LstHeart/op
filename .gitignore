@@ -4,3 +4,5 @@ amlogic-s9xxx-openwrt/
 npm-debug.log*
 openwrt/
 .history/
+openwrt-lede/
+openwrt-lienol/
