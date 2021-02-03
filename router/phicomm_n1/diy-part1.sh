@@ -15,8 +15,8 @@
     git clone --depth 1 --recurse-submodules https://github.com/LstHeart/op-package.git lstheart-packages
     # git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
     # sudo rm -rf lean/{luci-theme-argon,luci-lib-docker,qBittorrent,luci-app-jd-dailybonus}
+    sudo rm -rf lean/{qBittorrent,luci-app-qbittorrent,v2ray,v2ray-plugin,shadowsocksr-libev,trojan,kcptun,ipt2socks}
     cp -Rf lstheart-packages/* ./lean/
-    sudo rm -rf lean/{qBittorrent,luci-app-qbittorrent}
     rm -rf ./lstheart-packages
 )
 
