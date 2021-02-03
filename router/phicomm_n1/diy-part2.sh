@@ -63,11 +63,11 @@ CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server is not set
 # passwall
-CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Server=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Server=y
+# CONFIG_PACKAGE_luci-app-passwall=m
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Server=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Server=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray is not set
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO is not set
